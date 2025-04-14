@@ -1,0 +1,122 @@
+/* LoanForm.css */
+.loan-form-overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+  
+  .loan-form-container {
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 28rem; /* Adjusted max-width */
+  }
+  
+  .loan-form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .loan-form-title {
+    font-size: 1.25rem; /* Adjusted font-size */
+    font-weight: bold;
+  }
+  
+  .loan-form-close-button {
+    color: #718096;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+  }
+  
+  .loan-form-close-button:hover {
+    color: #4a5568;
+  }
+  
+  .loan-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .loan-form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .loan-form-label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: medium;
+    color: #4a5568;
+    margin-bottom: 0.25rem;
+  }
+  
+  .loan-form-input,
+  .loan-form-textarea {
+    margin-top: 0.25rem;
+    display: block;
+    width: 100%;
+    border-radius: 0.375rem;
+    border-width: 1px;
+    border-color: #cbd5e0;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    padding: 0.75rem;
+    font-size: 1rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  
+  .loan-form-input:focus,
+  .loan-form-textarea:focus {
+    border-color: #63b3ed;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+  }
+  
+  .loan-form-textarea {
+    rows: 3;
+  }
+  
+  .loan-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    margin-top: 1.5rem; /* Added margin-top */
+  }
+  
+  .loan-form-cancel-button {
+    padding: 0.75rem 1rem;
+    border-width: 1px;
+    border-color: #cbd5e0;
+    border-radius: 0.375rem;
+    color: #4a5568;
+    background-color: white;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  }
+  
+  .loan-form-cancel-button:hover {
+    background-color: #edf2f7;
+    color: #2d3748;
+    border-color: #a0aec0;
+  }
+  
+  .loan-form-submit-button {
+    padding: 0.75rem 1rem;
+    background-color: #3b82f6;
+    color: white;
+    border-radius: 0.375rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.15s ease-in-out;
+  }
+  
+  .loan-form-submit-button:hover {
+    background-color: #2c69d4;
+  }

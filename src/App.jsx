@@ -5,14 +5,14 @@ import { AuthProvider } from './context/AuthContext';
 import { MainApp } from './components/MainApp';
 import { LoginForm } from './components/LoginForm';
 import { useAuth } from './context/AuthContext';
-import Header from './components/Header';
-import Footer from './components/Footer';
+// import Header from './components/Header';
+// import Footer from './components/Footer';
 function AppContent() {
-  <Header />
+  // <Header />
   const { user } = useAuth();
   return user ? <MainApp /> : <LoginForm />
   ;
-  <Footer />
+  // <Footer />
 }
 
 function App() {

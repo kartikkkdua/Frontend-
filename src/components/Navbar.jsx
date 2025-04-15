@@ -8,7 +8,7 @@ export default function Navbar() {
     <nav className="navbar">
       <div className="navbar-logo">
         <Link to="/" className="navbar-logo-link">
-          <h1>XYZ University</h1>
+          <h1>UPES</h1>
         </Link>
       </div>
       <div className="navbar-links">

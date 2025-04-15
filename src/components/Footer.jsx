@@ -7,7 +7,7 @@ import './styles/Footer.css';
 export default function Footer() {
   return (
     <footer className="main-footer">
-      <p>&copy; {new Date().getFullYear()} Library Management System</p>
+      <p>&copy; {new Date().getFullYear()} UPES Library Management System</p>
       <div className="footer-links">
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>

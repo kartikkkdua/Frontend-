@@ -185,4 +185,27 @@
     opacity: 1;
     transform: translateY(0);
   }
+}.main-footer {
+  background-color: #002147; /* UPES-themed navy blue */
+  color: #ffffff;
+  padding: 20px 40px;
+  text-align: center;
+  margin-top: 40px;
+  border-top: 2px solid #f0f0f0;
+}
+
+.footer-links {
+  margin-top: 10px;
+}
+
+.footer-links a {
+  color: #ffffff;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ffcc00; /* gold hover color */
 }

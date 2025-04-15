@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
-import './styles/BookForm.css'; // Import the CSS file
+import './styles/BookForm.css';
 
 const categories = ['Fiction', 'Non-Fiction', 'Science', 'Technology', 'History', 'Biography', 'Other'];
 const languages = ['English', 'Spanish', 'French', 'German', 'Chinese', 'Japanese', 'Other'];

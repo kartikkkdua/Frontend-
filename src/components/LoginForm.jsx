@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
-import { useAuth } from '../context/AuthContext';
-import { Library } from 'lucide-react';
-import './styles/LoginForm.css'; // Import the CSS file
+import React, { useState } from "react";
+import { useAuth } from "../context/AuthContext";
+import { Library } from "lucide-react";
+import "./styles/LoginForm.css";
 
 export function LoginForm() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const { login } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
+    setError("");
 
     try {
       await login(email, password);
     } catch (err) {
-      setError('Invalid email or password');
+      setError("Invalid email or password");
     }
   };
 
@@ -26,14 +26,9 @@ export function LoginForm() {
         <div className="login-logo-container">
           <Library className="login-logo" />
         </div>
-        <h2 className="login-title">
-          Library Management System
-        </h2>
-        <p className="login-subtitle">
-          Please sign in to continue
-        </p>
+        <h2 className="login-title">Library Management System</h2>
+        <p className="login-subtitle">Please sign in to continue</p>
       </div>
-
       <div className="login-card-inner">
         <form className="login-form" onSubmit={handleSubmit}>
           <div className="login-form-group">
@@ -72,17 +67,13 @@ export function LoginForm() {
             </div>
           </div>
 
-          {error && (
-            <div className="login-error-message">{error}</div>
-          )}
+          {error && <div className="login-error-message">{error}</div>}
 
-          <div><center>
-            <button
-              type="submit"
-              className="login-button"
-            >
-              Sign in
-            </button>
+          <div>
+            <center>
+              <button type="submit" className="login-button">
+                Sign in
+              </button>
             </center>
           </div>
         </form>
@@ -90,9 +81,7 @@ export function LoginForm() {
         <div className="login-demo-credentials">
           <div className="login-credentials-separator">
             <div className="login-separator-line" />
-            <span className="login-separator-text">
-              Demo Credentials
-            </span>
+            <span className="login-separator-text">Demo Credentials</span>
           </div>
           <div className="login-credentials-list">
             <p>Admin: admin@library.com / admin123</p>
@@ -100,6 +89,7 @@ export function LoginForm() {
           </div>
         </div>
       </div>
+      
     </div>
   );
 }

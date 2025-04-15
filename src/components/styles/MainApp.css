@@ -1,5 +1,25 @@
 /* MainApp.css */
 
+/* Global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+.main-app-container {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+}
+
 :root {
   --primary-color: #3b82f6; /* Tailwind blue-600 */
   --bg-color: #f3f4f6;
@@ -8,18 +28,6 @@
   --text-muted: #4b5563;
   --border-color: #e5e7eb;
   --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-body {
-  margin: 0;
-  font-family: 'Inter', sans-serif;
-}
-
-.main-app-container {
-  min-height: 100vh;
-  background-color: var(--bg-color);
-  display: flex;
-  flex-direction: column;
 }
 
 /* Header Styles */
@@ -95,14 +103,45 @@ button:hover {
   background-color: #dc2626;
 }
 
-/* Search and Filter Controls */
+/* Main Content Styles */
+.main-content {
+  padding: 20px;
+  flex-grow: 1;
+}
+
+.user-dashboard {
+  margin-bottom: 20px;
+}
+
+.user-greeting {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.role-based-message {
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+.notification {
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.filter-status {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #666;
+}
+
 .controls-container {
-  padding: 1.5rem 2rem;
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  align-items: center;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .search-container {
@@ -162,4 +201,94 @@ button:hover {
   font-size: 1.25rem;
   color: var(--text-muted);
   padding: 2rem;
+}
+
+.book-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.book-item {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  transition: box-shadow 0.3s ease;
+}
+
+.book-item:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.book-item h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.book-item p {
+  margin: 5px 0;
+  font-size: 0.9rem;
+}
+
+.book-status {
+  font-weight: bold;
+  color: #007bff;
+}
+
+.book-rating {
+  margin-top: 10px;
+  color: #ff9800;
+}
+
+.book-item button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.book-item button:hover {
+  background-color: #218838;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .filters-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .controls-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  .book-list {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-app-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header-right {
+    margin-top: 10px;
+  }
+
+  .search-input {
+    width: 100%;
+  }
 }

@@ -1,24 +1,42 @@
 // App.jsx
 
 import React from 'react';
-import { AuthProvider } from './context/AuthContext';
-import { MainApp } from './components/MainApp';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { AuthProvider, useAuth } from './context/AuthContext';
 import { LoginForm } from './components/LoginForm';
-import { useAuth } from './context/AuthContext';
-// import Header from './components/Header';
-// import Footer from './components/Footer';
+import { MainApp } from './components/MainApp';
+import About from './components/About'; // Correct import for default export
+import Navbar from './components/Navbar';
+import  Help  from './components/Help';
+import  Contact  from './components/Contact';
+import Footer from './components/Footer';
+
 function AppContent() {
-  // <Header />
   const { user } = useAuth();
-  return user ? <MainApp /> : <LoginForm />
-  ;
-  // <Footer />
+
+  return (
+    <Routes>
+      {user ? (
+        <Route path="/*" element={<MainApp />} />
+      ) : (
+        <Route path="/*" element={<LoginForm />} />
+      )}
+  
+      <Route path="/about" element={<About />} />
+      <Route path="/help" element={<Help />} />
+      <Route path="/contact" element={<Contact />} />
+    </Routes>
+  );
 }
 
 function App() {
   return (
     <AuthProvider>
-      <AppContent />
+      <Router>
+      <Navbar />
+        <AppContent />
+        <Footer />
+      </Router>
     </AuthProvider>
   );
 }

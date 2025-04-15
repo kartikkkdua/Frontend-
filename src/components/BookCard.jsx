@@ -1,40 +1,35 @@
 import React from 'react';
-import { Pencil, Trash2, Star, StarHalf, BookOpen, Users, Calendar } from 'lucide-react';
-import './BookCard.css';
+import {
+  Pencil, Trash2, Star, StarHalf,
+  BookOpen, Users, Calendar
+} from 'lucide-react';
+import './styles/BookCard.css';
+
+const statusColors = {
+  Available: 'status-available',
+  Loaned: 'status-loaned',
+  Lost: 'status-lost',
+  Reading: 'status-reading',
+};
+
+const renderRatingStars = (rating) => {
+  const fullStars = Math.floor(rating);
+  const hasHalfStar = rating % 1 >= 0.5;
+
+  return [
+    ...Array(fullStars).fill().map((_, i) => <Star key={`full-${i}`} className="star" />),
+    hasHalfStar && <StarHalf key="half" className="star" />,
+  ];
+};
+
+const formatDate = (dateString) =>
+  new Date(dateString).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  });
 
 export function BookCard({ book, onEdit, onDelete, onStatusChange, onLoan }) {
-  const statusColors = {
-    Available: 'status-available',
-    Loaned: 'status-loaned',
-    Lost: 'status-lost',
-    Reading: 'status-reading',
-    Completed: 'status-completed',
-  };
-
-  const renderRatingStars = (rating) => {
-    const stars = [];
-    const fullStars = Math.floor(rating);
-    const hasHalfStar = rating % 1 >= 0.5;
-
-    for (let i = 0; i < fullStars; i++) {
-      stars.push(<Star key={`full-${i}`} className="star" />);
-    }
-
-    if (hasHalfStar) {
-      stars.push(<StarHalf key="half" className="star" />);
-    }
-
-    return stars;
-  };
-
-  const formatDate = (dateString) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-    });
-  };
-
   return (
     <div className="book-card">
       <div className="book-image-wrapper">
@@ -46,9 +41,7 @@ export function BookCard({ book, onEdit, onDelete, onStatusChange, onLoan }) {
             e.target.src = 'https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&q=80&w=300';
           }}
         />
-        <div className="rating-stars">
-          {renderRatingStars(book.rating)}
-        </div>
+        <div className="rating-stars">{renderRatingStars(book.rating)}</div>
       </div>
 
       <div className="book-content">
@@ -57,35 +50,22 @@ export function BookCard({ book, onEdit, onDelete, onStatusChange, onLoan }) {
             <h3 className="book-title">{book.title}</h3>
             <p className="book-author">by {book.author}</p>
           </div>
-          <span className={`book-status ${statusColors[book.status]}`}>
-            {book.status}
-          </span>
+          <span className={`book-status ${statusColors[book.status]}`}>{book.status}</span>
         </div>
 
         <div className="book-tags">
-          {book.tags.map((tag, index) => (
-            <span key={index} className="book-tag">{tag}</span>
+          {book.tags.map((tag, i) => (
+            <span key={i} className="book-tag">{tag}</span>
           ))}
         </div>
 
         <p className="book-description">{book.description}</p>
 
         <div className="book-meta">
-          <div className="meta-item">
-            <BookOpen className="icon" />
-            <span>{book.pageCount} pages</span>
-          </div>
-          <div className="meta-item">
-            <Calendar className="icon" />
-            <span>{book.publishedYear}</span>
-          </div>
-          <div className="meta-item">
-            <Users className="icon" />
-            <span>{book.language}</span>
-          </div>
-          <div className="meta-item">
-            <span className="isbn">ISBN: {book.isbn}</span>
-          </div>
+          <div className="meta-item"><BookOpen className="icon" /><span>{book.pageCount} pages</span></div>
+          <div className="meta-item"><Calendar className="icon" /><span>{book.publishedYear}</span></div>
+          <div className="meta-item"><Users className="icon" /><span>{book.language}</span></div>
+          <div className="meta-item"><span className="isbn">ISBN: {book.isbn}</span></div>
         </div>
 
         {book.loanInfo && (
@@ -103,14 +83,11 @@ export function BookCard({ book, onEdit, onDelete, onStatusChange, onLoan }) {
                 onChange={(e) => onStatusChange(book.id, e.target.value)}
                 className="status-select"
               >
-                <option value="Available">Available</option>
-                <option value="Loaned">Loaned</option>
-                <option value="Lost">Lost</option>
-                <option value="Reading">Reading</option>
-                <option value="Completed">Completed</option>
+                {Object.keys(statusColors).map((status) => (
+                  <option key={status} value={status}>{status}</option>
+                ))}
               </select>
             )}
-
             <div className="action-buttons">
               {onLoan && book.status === 'Available' && (
                 <button onClick={() => onLoan(book)} title="Loan book" className="btn-loan">

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { Library } from 'lucide-react';
-import './LoginForm.css'; // Import the CSS file
+import './styles/LoginForm.css'; // Import the CSS file
 
 export function LoginForm() {
   const [email, setEmail] = useState('');
@@ -76,13 +76,14 @@ export function LoginForm() {
             <div className="login-error-message">{error}</div>
           )}
 
-          <div>
+          <div><center>
             <button
               type="submit"
               className="login-button"
             >
               Sign in
             </button>
+            </center>
           </div>
         </form>
 

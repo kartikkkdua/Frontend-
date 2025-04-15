@@ -1,0 +1,165 @@
+/* MainApp.css */
+
+:root {
+  --primary-color: #3b82f6; /* Tailwind blue-600 */
+  --bg-color: #f3f4f6;
+  --header-bg: #ffffff;
+  --text-dark: #1f2937;
+  --text-muted: #4b5563;
+  --border-color: #e5e7eb;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.main-app-container {
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Styles */
+.main-app-header {
+  background-color: var(--header-bg);
+  box-shadow: var(--shadow);
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.header-logo {
+  height: 2rem;
+  width: 2rem;
+  color: var(--primary-color);
+}
+
+.header-left h1 {
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: var(--text-dark);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.user-icon {
+  color: var(--text-muted);
+}
+
+/* Buttons */
+button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #2563eb; /* Tailwind blue-500 */
+}
+
+.logout-button {
+  background-color: #ef4444; /* Tailwind red-500 */
+}
+
+.logout-button:hover {
+  background-color: #dc2626;
+}
+
+/* Search and Filter Controls */
+.controls-container {
+  padding: 1.5rem 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: white;
+  border: 1px solid var(--border-color);
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background: transparent;
+}
+
+/* Filters Grid */
+.filters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  padding: 1rem 2rem;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.filter-group label {
+  font-weight: 500;
+  color: var(--text-dark);
+}
+
+.filter-select,
+.filter-input {
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  border: 1px solid var(--border-color);
+  font-size: 1rem;
+}
+
+/* Books Grid */
+.books-grid {
+  padding: 1.5rem 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.no-books-message {
+  text-align: center;
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  padding: 2rem;
+}

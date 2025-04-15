@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
-import './LoanForm.css'; // Import the CSS file
+import './styles/LoanForm.css'; // Import the CSS file
 
 export function LoanForm({ book, onSubmit, onClose }) {
   const [formData, setFormData] = useState({
